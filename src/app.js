@@ -10,6 +10,7 @@ console.log(__filename)
 console.log(__dirname)
 
 const app = express()
+const port = process.env.PORT || 3000// its by heroku OR 3000 for locally
 
 const publicDirectoryPath = path.join(__dirname, '../public') // to get to public directory
 const viewPath = path.join(__dirname,'../templates/views') // To get views directory
@@ -100,7 +101,9 @@ app.get('*',(req,res)=>{ // * means everything is matched, it should be last so 
 })
 
 
-app.listen(3000, () => { // To start the server
-    console.log('Server is up on port 3000')
+
+
+app.listen(port, () => { // To start the server locally
+    console.log('Server is up on port: '+port)
 
 }) 
